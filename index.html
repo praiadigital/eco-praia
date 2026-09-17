@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eco Praia — Risco Climático de Imóveis do Litoral</title>
+<meta name="description" content="Avalie risco de alagamento, erosão e sustentabilidade de imóveis no litoral paulista antes de comprar.">
+<style>body{font-family:system-ui;margin:0;background:#f0f9ff;color:#0c4a6e}header{background:linear-gradient(135deg,#065f46,#10b981);color:#fff;padding:2rem 1rem;text-align:center}header a{color:#a7f3d0}main{max-width:720px;margin:1.5rem auto;padding:0 1rem}.card{background:#fff;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 8px rgba(16,185,129,.18)}select,button{font-size:1rem;padding:.55rem;border-radius:8px;border:1px solid #6ee7b7;margin:.25rem 0;width:100%;box-sizing:border-box}button{background:#059669;color:#fff;border:0;font-weight:700;cursor:pointer}label{font-size:.9rem;font-weight:600}.risk{font-size:2.6rem;font-weight:800;text-align:center}footer{text-align:center;font-size:.85rem;padding:2rem 1rem;color:#065f46}.net{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.8rem}.net a{background:#d1fae5;color:#065f46;padding:.3rem .6rem;border-radius:999px;text-decoration:none;font-size:.8rem}</style>
+</head>
+<body>
+<header><h1>🌱 Eco Praia</h1><p>Risco climático e sustentabilidade: o futuro do seu imóvel em 2050.</p><a href="https://praia.digital">← praia.digital</a> · <a href="https://praia.digital/apps">Hub de apps</a></header>
+<main>
+<div class="card">
+<label>Cidade</label><select id="cid"><option value="3">Guarujá</option><option value="2">Santos</option><option value="4">São Sebastião</option><option value="2">Praia Grande</option><option value="3">Ubatuba</option><option value="3">Bertioga</option><option value="2">Mongaguá</option><option value="1">Peruíbe</option></select>
+<label>Posição do terreno</label><select id="pos"><option value="4">Frente mar / restinga</option><option value="3">Baixada / perto de rio</option><option value="2">Área plana urbana</option><option value="1">Encosta leve / morro</option></select>
+<label>Tipo de construção</label><select id="tip"><option value="1">Prédio com pilares/pilotis</option><option value="2">Casa térrea alvenaria</option><option value="3">Casa antiga sem drenagem</option></select>
+<button onclick="calc()">Avaliar risco</button>
+</div>
+<div class="card" id="out" style="display:none"><div class="risk" id="rk"></div><p id="det"></p></div>
+<div class="card"><h3>Cruze com</h3><p>🏖️ <a href="https://praia.digital/praiascore">PraiaScore — qualidade do imóvel</a><br>🌙 <a href="https://praia.digital/marea">Maréa — marés e sizígia</a><br>🗺️ <a href="https://praia.digital/mapa-investidor">Mapa do Investidor — inclui risco climático</a></p></div>
+</main>
+<footer><b>Rede Praia Digital</b><div class="net"><a href="https://praia.digital/apps">Hub</a><a href="https://praia.digital/chave-na-mao">Chave na Mão</a><a href="https://praia.digital/sossego-index">Sossego Index</a><a href="https://praia.digital/alerta-ofertas">Alerta de Ofertas</a><a href="https://praia.digital/vizinho-digital">Vizinho Digital</a><a href="https://praia.digital/ondata">Ondata</a><a href="https://praia.digital/plano-litoral">Plano Litoral</a><a href="https://praia.digital/radar-precos">Radar</a></div><p>© 2026 Praia Digital</p></footer>
+<script>
+function calc(){
+ const s=+cid.value+ +pos.value+ +tip.value;
+ const o=document.getElementById('out');o.style.display='block';
+ const r=document.getElementById('rk'),d=document.getElementById('det');
+ if(s>=8){r.textContent='🔴 Risco Alto ('+s+'/10)';r.style.color='#dc2626';d.innerHTML='<b>Atenção:</b> verifique histórico de alagamentos, cota de inundação e seguro obrigatório. Considere o valor no seguro (~0,3%/ano) na conta do <a href="https://praia.digital/plano-litoral">Plano Litoral</a>.';}
+ else if(s>=5){r.textContent='🟡 Risco Moderado ('+s+'/10)';r.style.color='#d97706';d.innerHTML='Drenagem urbana resolve a maioria dos eventos. Exija vistoria em dia de chuva antes da proposta — veja a jornada no <a href="https://praia.digital/chave-na-mao">Chave na Mão</a>.';}
+ else{r.textContent='🟢 Risco Baixo ('+s+'/10)';r.style.color='#16a34a';d.innerHTML='Perfil resiliente: valorização climática tende a superar a média. Compare scores no <a href="https://praia.digital/mapa-investidor">Mapa do Investidor</a>.';}
+}
+</script>
+</body>
+</html>
